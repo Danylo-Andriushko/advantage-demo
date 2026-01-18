@@ -21,6 +21,16 @@ test.describe('Verify the searching feature', () => {
     await expect(currentProductName).toHaveText(searchedProductName);
   });
 
+  test('Searching for a non-existent product should return a relevant message', async ({
+    searchPage,
+    header,
+  }) => {
+    const searchedNotExistingProductName = searchData.nameOfNonExistingProduct;
+    await header.searchProduct(searchedNotExistingProductName);
+    const currentMessage = await searchPage.nonExistingProductMessage();
+    await expect(currentMessage).toHaveText('No results for "lenovo"');
+  });
+
   test('hovering by each category user should be able to perform shopping', async ({
     mainPage,
   }) => {
