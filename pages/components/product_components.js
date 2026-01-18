@@ -12,10 +12,10 @@ export class ProductComponents extends BasePage {
 
   async customizeProduct(color, quantity) {
     await this.page.locator(`[title="${color}"]`).click();
-    await this.page.locator('[name="quantity"]').fill(quantity); // ПЕРЕНЕСЕНО З SpeakersPage
+    await this.page.locator('[name="quantity"]').fill(quantity); 
   }
 
   async addToCart() {
-    await this.getAddToCartButton.click();  // ПЕРЕНЕСЕНО З SpeakersPage
+    await this.getAddToCartButton.click();
   }
 }

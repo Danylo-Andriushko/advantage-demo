@@ -11,6 +11,11 @@ export class OrderPaymentPage extends BasePage {
     this.getSuccessMessage = this.page.locator('h2 span');
   }
 
+  async inputSafePayData(name, password) {
+    await this.getSafePayName.fill(name);
+    await this.getSafePayPassword.fill(password);
+  }
+
   async confirmPayment() {
     await this.getNextButton.click();
     await this.getPayNowButton.click();

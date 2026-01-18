@@ -32,6 +32,8 @@ test.describe('Cart management feature', () => {
     await helpers.addProductToTheCart('Bose Soundlink Bluetooth Speaker III', 'GRAY', '3');
     await miniCart.getCheckoutButton.click();
     await orderPaymentPage.confirmPayment();
+    await orderPaymentPage.inputSafePayData(userData.userName,
+      userData.userPassword);
     const orderConfirmationMessage =
       await orderPaymentPage.getSuccessMessage.textContent();
     await expect(orderConfirmationMessage).toBe(
