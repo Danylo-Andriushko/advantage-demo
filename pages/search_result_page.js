@@ -1,0 +1,13 @@
+import { BasePage } from './base_page';
+
+export class SearchPage extends BasePage {
+  constructor(page) {
+    super(page);
+    this.url = '/#/search/';
+    this.getProductItem = this.page.locator('a.productName.ng-binding');
+  }
+
+  async currentName() {
+    return this.getProductItem;
+  }
+}
